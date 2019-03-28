@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "engines": {
-    "node": "11.2.0",
-    "npm": "6.9.0"
+    "node": "11.2.0"
   },
   "keywords": [],
   "author": "",
