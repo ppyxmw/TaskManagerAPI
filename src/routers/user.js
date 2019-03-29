@@ -8,11 +8,10 @@ const router = new express.Router()
 
 router.post('/users', async (req, res) => {
   const user = new User(req.body)
-
   try {
     await user.save()
     console.log({ user, error: 'stop3' }) //NEEDS TO BE DELETED
-    // sendWelcomeEmail(user.email, user.name)
+    sendWelcomeEmail(user.email, user.name)
     console.log({ user, error: 'stop5' }) //NEEDS TO BE DELETED
 
     const token = await user.generateAuthToken()
