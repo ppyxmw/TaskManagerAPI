@@ -15,7 +15,9 @@ const auth = async (req, res, next) => {
     req.user = user
     next()
   } catch (e) {
-    res.status(401).send({ error: 'Please authenticate', token, decoded, user })
+    const token2 = req.header('Authorization').replace('Bearer ', '')
+
+    res.status(401).send({ error: 'Please authenticate', token: token2 })
   }
 }
 
