@@ -96,19 +96,27 @@ userSchema.methods.toJSON = function() {
 userSchema.methods.generateAuthToken = async function() {
   const user = this
   const token = jwt.sign({ _id: user._id.toString() }, process.env.JWT_SECRET)
+  console.log({ user, token, error: 'stop6' }) //NEEDS TO BE DELETED
 
   user.tokens = user.tokens.concat({ token })
+  console.log({ user, token, error: 'stop7' }) //NEEDS TO BE DELETED
+
   await user.save()
+  console.log({ user, token, error: 'stop8' }) //NEEDS TO BE DELETED
 
   return token
 }
 
 userSchema.pre('save', async function(next) {
   const user = this
+  console.log({ user, error: 'stop1' }) //NEEDS TO BE DELETED
 
   if (user.isModified('password')) {
     user.password = await bcrypt.hash(user.password, 8)
   }
+
+  console.log({ user, error: 'stop2' }) //NEEDS TO BE DELETED
+
   next()
 })
 
