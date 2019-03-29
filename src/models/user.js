@@ -109,13 +109,13 @@ userSchema.methods.generateAuthToken = async function() {
 
 userSchema.pre('save', async function(next) {
   const user = this
-  console.log({ user, error: 'stop1' }) //NEEDS TO BE DELETED
+  console.log({ user, error: 'stop2' }) //NEEDS TO BE DELETED
 
   if (user.isModified('password')) {
     user.password = await bcrypt.hash(user.password, 8)
   }
 
-  console.log({ user, error: 'stop2' }) //NEEDS TO BE DELETED
+  console.log({ user, error: 'stop2.5' }) //NEEDS TO BE DELETED
 
   next()
 })
