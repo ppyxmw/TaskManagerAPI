@@ -15,7 +15,7 @@ router.post('/users', async (req, res) => {
     console.log({ user, error: 'stop1' }) //NEEDS TO BE DELETED
 
     await user.save()
-    console.log({ user, error: 'stop3.5' }) //NEEDS TO BE DELETED
+    console.log({ user, error: 'stop3' }) //NEEDS TO BE DELETED
     sendWelcomeEmail(user.email, user.name)
     console.log({ user, error: 'stop5' }) //NEEDS TO BE DELETED
 
