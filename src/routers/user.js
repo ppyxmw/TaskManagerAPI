@@ -9,11 +9,13 @@ const router = new express.Router()
 
 router.post('/users', async (req, res) => {
   const user = new User(req.body)
+  console.log({ user, error: 'stop0' }) //NEEDS TO BE DELETED
+
   try {
-    console.log({ user, error: 'stop3.5' }) //NEEDS TO BE DELETED
+    console.log({ user, error: 'stop3' }) //NEEDS TO BE DELETED
 
     await user.save()
-    console.log({ user, error: 'stop3' }) //NEEDS TO BE DELETED
+    console.log({ user, error: 'stop3.5' }) //NEEDS TO BE DELETED
     sendWelcomeEmail(user.email, user.name)
     console.log({ user, error: 'stop5' }) //NEEDS TO BE DELETED
 
