@@ -4,19 +4,15 @@ const sharp = require('sharp')
 const User = require('../models/user')
 const auth = require('../middleware/auth')
 const { sendWelcomeEmail, sendCancelEmail } = require('../emails/account')
-
 const router = new express.Router()
 
 router.post('/users', async (req, res) => {
   const user = new User(req.body)
-  console.log({ user, error: 'stop0' }) //NEEDS TO BE DELETED
 
   try {
-    console.log({ user, error: 'stop1' }) //NEEDS TO BE DELETED
-
     await user.save()
     console.log({ user, error: 'stop3' }) //NEEDS TO BE DELETED
-    sendWelcomeEmail(user.email, user.name)
+    // sendWelcomeEmail(user.email, user.name)
     console.log({ user, error: 'stop5' }) //NEEDS TO BE DELETED
 
     const token = await user.generateAuthToken()
