@@ -3,8 +3,6 @@ const sgMail = require('@sendgrid/mail')
 sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
 const sendWelcomeEmail = (email, name) => {
-  console.log({ email, name, error: 'stop4' }) //NEEDS TO BE DELETED
-
   sgMail.send({
     to: email,
     from: 'ppyxmw@gmail.com',
@@ -13,7 +11,7 @@ const sendWelcomeEmail = (email, name) => {
   })
 }
 
-const sendCancelEmail = (email, name) => {
+const sendCancelationEmail = (email, name) => {
   sgMail.send({
     to: email,
     from: 'ppyxmw@gmail.com',
