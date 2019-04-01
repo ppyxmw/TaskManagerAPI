@@ -22,5 +22,5 @@ const sendCancelationEmail = (email, name) => {
 
 module.exports = {
   sendWelcomeEmail,
-  sendCancelEmail
+  sendCancelationEmail
 }
